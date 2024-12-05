@@ -3,7 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  webf
+  flutter_linux_webview
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
