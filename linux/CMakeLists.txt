@@ -1,6 +1,15 @@
 # Project-level configuration.
 cmake_minimum_required(VERSION 3.10)
+
+# Add the policy setting here
+if(POLICY CMP0074)
+  cmake_policy(SET CMP0074 NEW)
+endif()
+
 project(runner LANGUAGES CXX)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/flutter/ephemeral/.plugin_symlinks/flutter_linux_webview/linux/cmake")
+set(CEF_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/flutter/ephemeral/.plugin_symlinks/flutter_linux_webview/linux/cef_binary_96.0.18+gfe551e4+chromium-96.0.4664.110_linux64_minimal")
+
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
