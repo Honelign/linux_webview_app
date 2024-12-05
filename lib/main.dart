@@ -11,6 +11,12 @@ import 'package:webview_flutter/webview_flutter.dart';
 Future<void> main() async {
   WebView.platform = LinuxWebView();
   WidgetsFlutterBinding.ensureInitialized();
+  LinuxWebViewPlugin.initialize(options: <String, String?>{
+    'user-agent':
+        'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Mobile Safari/537.36',
+    'remote-debugging-port': '8888',
+    'autoplay-policy': 'no-user-gesture-required',
+  });
   await LinuxWebViewPlugin.initialize();
   runApp(const MyApp());
 }
