@@ -8,7 +8,7 @@ endif()
 
 project(runner LANGUAGES CXX)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/flutter/ephemeral/.plugin_symlinks/flutter_linux_webview/linux/cmake")
-set(CEF_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/flutter/ephemeral/.plugin_symlinks/flutter_linux_webview/linux/cef_binary_96.0.18+gfe551e4+chromium-96.0.4664.110_linux64_minimal")
+set(CEF_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/flutter/ephemeral/.plugin_symlinks/flutter_linux_webview/linux/third_party/cef/src")
 
 
 # The name of the executable created for the application. Change this to change
