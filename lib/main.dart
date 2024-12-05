@@ -36,8 +36,7 @@ class MyBrowser extends StatefulWidget {
   _MyBrowserState createState() => _MyBrowserState();
 }
 
-class _MyBrowserState extends State<MyBrowser> 
-    with WidgetsBindingObserver {
+class _MyBrowserState extends State<MyBrowser> with WidgetsBindingObserver {
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
 
@@ -66,22 +65,26 @@ class _MyBrowserState extends State<MyBrowser>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('flutter_linux_webview example'),
-      ),
-      body: WebView(
-        initialUrl: 'https://flutter.dev',
-        initialCookies: const [
-          WebViewCookie(name: 'mycookie', value: 'foo', domain: 'flutter.dev')
-        ],
-        onWebViewCreated: (WebViewController webViewController) {
-          _controller.complete(webViewController);
-        },
-        javascriptMode: JavascriptMode.unrestricted,
-      ),
-      // floatingActionButton: favoriteButton(),
-    );
+        appBar: AppBar(
+          title: const Text('flutter_linux_webview example'),
+        ),
+        body: WebView(
+          initialUrl: 'https://www.youtube.com',
+          initialCookies: const [
+            WebViewCookie(
+                name: 'mycookie', value: 'foo', domain: 'www.youtube.com')
+          ],
+          onWebViewCreated: (WebViewController webViewController) {
+            _controller.complete(webViewController);
+          },
+          javascriptMode: JavascriptMode.unrestricted,
+          javascriptChannels: const <JavascriptChannel>{},
+          navigationDelegate: (NavigationRequest request) {
+            return NavigationDecision.navigate;
+          },
+          gestureNavigationEnabled: true,
+          userAgent:
+              'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Mobile Safari/537.36',
+        ));
   }
-
- 
 }
